@@ -1,4 +1,3 @@
-
 [build]
   base = "Dropshipping-Store/Dropshipping-Store"
   command = "pnpm run build"
