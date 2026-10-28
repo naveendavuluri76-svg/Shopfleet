@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Dropship Store"
+description = "A responsive starter storefront for browsing a curated sample product catalog and managing a shopping cart. Product niche, supplier inventory, and checkout can be connected later."
+version = "1.0.0"
+id = "artifacts/dropship-store"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18489
+
+[services.development]
+run = "pnpm --filter @workspace/dropship-store run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/dropship-store", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/dropship-store/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18489"
+BASE_PATH = "/"
