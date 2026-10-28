@@ -1,0 +1,27 @@
+name: Restore ShopFleet source
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract source files
+        run: |
+          unzip -o ShopFleet-source.zip -d .
+          find Dropshipping-Store -name .git -type d -prune -exec rm -rf {} + || true
+          git add -A
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --cached --quiet; then
+            git commit -m "Restore ShopFleet source files"
+            git push
+          fi
