@@ -1,0 +1,24 @@
+name: Fix broken ShopFleet submodule
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove broken repository link
+        run: |
+          git rm --cached -f Dropshipping-Store/Dropshipping-Store
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Remove broken nested repository link"
+          git push
