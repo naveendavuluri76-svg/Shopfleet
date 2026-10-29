@@ -288,3 +288,33 @@
  .service-row > div { padding:11px 8px;border-right:0;border-bottom:1px solid var(--line); }
  .service-row > div:last-child { border-bottom:0; }
 }
+/* ShopFleet categories below search */
+.quick-category-bar {
+  max-width: 1390px;
+  margin: 0 auto;
+  padding: 12px 28px;
+  background: var(--paper);
+}
+
+.quick-category-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding: 2px 0 8px;
+}
+
+.quick-category-row .category-card {
+  flex: 0 0 190px;
+}
+
+@media (max-width: 620px) {
+  .quick-category-bar {
+    padding: 10px 14px;
+  }
+
+  .quick-category-row .category-card {
+    flex-basis: 165px;
+  }
+}
+  
