@@ -235,7 +235,7 @@ function StoreShell({ children }: { children: ReactNode }) {
         {drawerTab === 'cart' ? <>
           {detailedCart.length ? <div className="drawer-items">
             {detailedCart.map(({ id, quantity, product }) => <div className="cart-row" key={id} data-testid={`row-cart-${id}`}>
-              {product ? <img src={product.image} alt="" /> : <span className="category-card-icon"><CategoryIcon size={18} /></span>}
+              {product ? <img src={product.image} alt="" /> : null}
               <div><h3>{product!.name}</h3><span className="cart-row-price">{money(product!.price)} each</span>
                 <div className="quantity" aria-label={`Quantity for ${product!.name}`}>
                   <button type="button" onClick={() => changeQuantity(id, -1)} aria-label={`Decrease ${product!.name} quantity`} data-testid={`button-decrease-${id}`}><Minus size={13} /></button>
