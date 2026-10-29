@@ -215,35 +215,6 @@ function StoreShell({ children }: { children: ReactNode }) {
           </div>
         </nav>
       </header>
-      
-      <div className="quick-category-bar">
-        <div className="quick-category-row">
-          <button
-            type="button"
-            className={`category-card ${activeCategory === 'Everything' ? 'active' : ''}`}
-            onClick={() => chooseCategory('Everything')}
-          >
-            <span className="category-card-icon"><Grid2X2 size={18} /></span>
-            <span className="category-card-copy"><strong>All Products</strong></span>
-          </button>
-
-          {productCategories.map((category) => {
-            const CategoryIcon = categoryIcons[category];
-            return (
-              <button
-                type="button"
-                key={category}
-                className={`category-card ${activeCategory === category ? 'active' : ''}`}
-                onClick={() => chooseCategory(category)}
-              >
-                <span className="category-card-icon"><CategoryIcon size={18} /></span>
-                <span className="category-card-copy"><strong>{category}</strong></span>
-                <ArrowRight className="category-card-arrow" size={15} />
-              </button>
-            );
-          })}
-        </div>
-      </div>
 
       <StoreControlsContext.Provider value={storeControls}>
         {children}
