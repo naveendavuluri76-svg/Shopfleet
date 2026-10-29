@@ -22,10 +22,9 @@ type Category = 'Car Accessories' | 'Home & Kitchen' | 'Electronics' | 'Lifestyl
 type Product = { id: string; name: string; category: Category; price: number; compareAt: number; description: string; details: string; image: string; rating: number; badge: 'Best Seller' | 'New Arrival' | 'Everyday Find' };
 type CartItem = { id: string; quantity: number };
 const products: Product[] = [];
- ];
 const productCategories = ['Electronics', 'Home & Kitchen', 'Car Accessories', 'Fashion', 'Beauty & Personal Care', 'Sports & Fitness'] as const;
 const categoryIcons = {
-  'Car Accessories': CarFront,const [activeCategory, setActiveCategory] = useState('Everything');
+  'Car Accessories': CarFront,
   'Home & Kitchen': House,
   Electronics: Cpu,
   Lifestyle: BriefcaseBusiness,
