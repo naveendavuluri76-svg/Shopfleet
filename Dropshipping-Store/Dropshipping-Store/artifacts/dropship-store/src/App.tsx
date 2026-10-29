@@ -328,7 +328,7 @@ function Home() {
         <div className="trending-cards">{productCategories.map((category) => {
           const product = products.find((item) => item.category === category);
           const CategoryIcon = categoryIcons[category];
-          return <button className="trending-card" key={category} type="button" onClick={() => { selectCategory(category); document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' }); }} data-testid={`trending-${category.toLowerCase().replaceAll(' ', '-').replaceAll('&', 'and')}`}><img src={product.image} alt="" loading="lazy" /><span><CategoryIcon size={13} />{category}</span></button>;
+          return <button className="trending-card" key={category} type="button" onClick={() => { selectCategory(category); document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' }); }} data-testid={`trending-${category.toLowerCase().replaceAll(' ', '-').replaceAll('&', 'and')}`}>{product ? <img src={product.image} alt="" loading="lazy" /> : null}<span><CategoryIcon size={13} />{category}</span></button>;
         })}</div>
       </section>
       <section className="service-row" aria-label="Prototype service information">
