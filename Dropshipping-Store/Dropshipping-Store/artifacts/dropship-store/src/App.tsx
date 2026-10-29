@@ -57,7 +57,7 @@ type StoreControls = {
   setView: (value: string) => void;
 };
 const StoreControlsContext = createContext<StoreControls | null>(null);
-const money = (value: number) => `$${value.toFixed(2)}`;
+const money = (value: number) => `₹${value.toFixed(2)}`;
 const discount = (product: Product) => `${Math.round((1 - product.price / product.compareAt) * 100)}% OFF`;
 const readStorage = <T,>(key: string, fallback: T): T => {
   try { const value = localStorage.getItem(key); return value ? JSON.parse(value) as T : fallback; } catch { return fallback; }
