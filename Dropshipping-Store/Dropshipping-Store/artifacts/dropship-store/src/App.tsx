@@ -21,7 +21,20 @@ const queryClient = new QueryClient();
 type Category = 'Car Accessories' | 'Home & Kitchen' | 'Electronics' | 'Lifestyle' | 'Fashion' | 'Beauty & Personal Care' | 'Sports & Fitness';
 type Product = { id: string; name: string; category: Category; price: number; compareAt: number; description: string; details: string; image: string; rating: number; badge: 'Best Seller' | 'New Arrival' | 'Everyday Find' };
 type CartItem = { id: string; quantity: number };
-const products: Product[] = [];
+const products: Product[] = [
+  {
+    id: 'rgb-gaming-phone-cooler',
+    name: 'RGB Gaming Phone Cooler',
+    category: 'Electronics',
+    price: 699,
+    compareAt: 899,
+    description: 'RGB LED phone cooler with a digital temperature display for gaming.',
+    details: 'Features RGB lighting and a digital temperature display. Check device compatibility and power requirements before ordering.',
+    image: '/file_000000004c1c8211b70c4e6e33deeb24.png',
+    rating: 4.5,
+    badge: 'New Arrival',
+  },
+];
 const productCategories = ['Electronics', 'Home & Kitchen', 'Car Accessories', 'Fashion', 'Beauty & Personal Care', 'Sports & Fitness'] as const;
 const categoryIcons = {
   'Car Accessories': CarFront,
