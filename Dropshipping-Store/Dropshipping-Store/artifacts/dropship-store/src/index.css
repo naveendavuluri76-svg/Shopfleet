@@ -288,8 +288,4 @@
  .service-row > div { padding:11px 8px;border-right:0;border-bottom:1px solid var(--line); }
  .service-row > div:last-child { border-bottom:0; }
 }
-  .quick-category-row .category-card {
-    flex-basis: 165px;
-  }
-}
   
