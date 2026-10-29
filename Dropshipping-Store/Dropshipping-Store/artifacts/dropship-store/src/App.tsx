@@ -235,7 +235,7 @@ function StoreShell({ children }: { children: ReactNode }) {
         {drawerTab === 'cart' ? <>
           {detailedCart.length ? <div className="drawer-items">
             {detailedCart.map(({ id, quantity, product }) => <div className="cart-row" key={id} data-testid={`row-cart-${id}`}>
-              <img src={product!.image} alt="" />
+              {product ? <img src={product.image} alt="" /> : <span className="category-card-icon"><CategoryIcon size={18} /></span>}
               <div><h3>{product!.name}</h3><span className="cart-row-price">{money(product!.price)} each</span>
                 <div className="quantity" aria-label={`Quantity for ${product!.name}`}>
                   <button type="button" onClick={() => changeQuantity(id, -1)} aria-label={`Decrease ${product!.name} quantity`} data-testid={`button-decrease-${id}`}><Minus size={13} /></button>
@@ -326,7 +326,7 @@ function Home() {
       <section className="trending-strip" aria-labelledby="trending-title">
         <div className="trending-title"><div className="eyebrow">A quick route in</div><h2 id="trending-title">Trending Categories</h2><p>Choose a collection to filter the sample catalog.</p></div>
         <div className="trending-cards">{productCategories.map((category) => {
-          const product = products.find((item) => item.category === category) ?? products[0];
+          const product = products.find((item) => item.category === category);
           const CategoryIcon = categoryIcons[category];
           return <button className="trending-card" key={category} type="button" onClick={() => { selectCategory(category); document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' }); }} data-testid={`trending-${category.toLowerCase().replaceAll(' ', '-').replaceAll('&', 'and')}`}><img src={product.image} alt="" loading="lazy" /><span><CategoryIcon size={13} />{category}</span></button>;
         })}</div>
